@@ -6,4 +6,4 @@
 # Run any database migrations
 php artisan migrate --force
 
-php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf
+exec php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf
