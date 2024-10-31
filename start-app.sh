@@ -4,5 +4,11 @@
 # Run any database migrations
 php artisan migrate --force
 
-# Serve app
-node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)
+# Process the Nginx configuration template
+node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf
+
+# Start PHP-FPM
+php-fpm -y /assets/php-fpm.conf & 
+
+# Start Nginx in the foreground
+exec nginx -c /nginx.conf
