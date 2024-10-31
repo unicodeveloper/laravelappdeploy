@@ -13,5 +13,8 @@ php artisan event:cache
 php artisan route:cache
 php artisan view:cache
 
+# Process the Nginx configuration template
+node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf
+
 # Run any database migrations
 # php artisan migrate --force
